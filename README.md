@@ -18,7 +18,7 @@ Place the data files  [data files](https://www.kaggle.com/c/march-machine-learni
 * The result is shown in res.png which shows the heapmap of probability a row team wins the column team. The teams are sorted by seed number. We can find some intersing fact in the picture. 
 
 <p align="center">
-  <img src="data/result/res.png" width="600"/>
+  <img src="data/result/800.png" width="600"/>
 </p>
 
 # Local Testing
