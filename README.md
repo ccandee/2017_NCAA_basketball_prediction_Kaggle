@@ -19,6 +19,10 @@ Place the data files  [data files](https://www.kaggle.com/c/march-machine-learni
 
 ![Alt text](..data/result/res.png "Result")
 
+<p align="center">
+  <img src="..data/result/res.png" width="350"/>
+</p>
+
 # Local Testing
 $ python data_process.py 1 2 2018
 
