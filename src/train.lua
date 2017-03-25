@@ -10,14 +10,19 @@ local s = 0
 for line in csvFile:lines('*l') do  
   s = s+1
 end
-train_data = torch.Tensor(s, 33)
+csvFile:close() 
+
+local csvFile = io.open('../data/processed/train_data.csv', 'r')  
+local header = csvFile:read()
 
 local i = 0  
+train_data = torch.Tensor(s, 33)
 for line in csvFile:lines('*l') do  
+  print(line)
   i = i + 1
   local l = line:split(',')
   for key, val in ipairs(l) do
-    train_data[i][key] = val
+     train_data[i][key] = val
   end
 end
 csvFile:close() 
@@ -31,7 +36,11 @@ local s = 0
 for line in csvFile:lines('*l') do  
   s = s+1
 end
+csvFile:close() 
 test_data = torch.Tensor(s, 33)
+
+local csvFile = io.open('../data/processed/test_data.csv', 'r')  
+local header = csvFile:read()
 
 local i = 0  
 for line in csvFile:lines('*l') do  
@@ -52,7 +61,12 @@ local s = 0
 for line in csvFile:lines('*l') do  
   s = s+1
 end
+csvFile:close() 
 to_submit = torch.Tensor(s, 32)
+
+
+local csvFile = io.open('../data/processed/to_submit.csv', 'r')
+local header = csvFile:read()
 
 
 local i = 0  
@@ -79,24 +93,19 @@ criterion = nn.BCECriterion()
 
 
 --Update function
+
 x, dl_dx = model:getParameters()
 feval = function(x_new)
-   -- set x to x_new, if differnt
-   -- (in this simple example, x_new will typically always point to x,
-   -- so the copy is really useless)
    if x ~= x_new then
       x:copy(x_new)
    end
 
-   -- select a new training sample
    _nidx_ = (_nidx_ or 0) + 1
    if _nidx_ > dataset_inputs:size(1) then _nidx_ = 1 end
 
    local inputs = dataset_inputs[_nidx_]
    local target = dataset_outputs[_nidx_]
 
-   -- reset gradients (gradients are always accumulated, to accomodate 
-   -- batch methods)
    dl_dx:zero()
 
    local outputs = model:forward(inputs)
@@ -114,7 +123,7 @@ sgd_params = {
    weightDecay = 0,
    momentum = 0
 }
-epochs = 400
+epochs = 500
 
 
 --Train model
@@ -137,15 +146,14 @@ print(current_loss)
 local output =  model:forward(X_test)
 local restable = torch.totable(output)
 csvigo.save("../data/result/result.csv", restable)
-local lb = torch.gt(output, 0.5)
-lb = lb:double() 
-local acc = torch.eq(lb, Y_test)
-local accuracy = acc:sum()/X_test:size(1)
-
+-- local lb = torch.gt(output, 0.5)
+-- lb = lb:double() 
+-- local acc = torch.eq(lb, Y_test)
+-- local accuracy = acc:sum()/X_test:size(1)
 
 
 --Result to submit
 
 local output =  model:forward(to_submit)
-local restable = torch.totable(output)
-csvigo.save("../data/result/to_submit_result.csv", restable)
+local restable1 = torch.totable(output)
+csvigo.save("../data/result/to_submit_result.csv", restable1)

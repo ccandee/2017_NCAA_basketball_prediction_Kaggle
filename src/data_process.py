@@ -12,7 +12,10 @@ from sklearn.metrics import roc_curve, auc
 from sklearn import metrics
 from sklearn.cross_validation import train_test_split
 
-#Prepare match detail for each seed starting from 2003, with n years' tourney, m years' regular match detail, then calculate the average
+# 
+# Prepare match detail for each seed starting from 2003, with n years' tourney, m years' regular match detail, calculate the average performance 
+# as a reference of the team. Use split_year to split train and test data.
+# 
 
 n = int(sys.argv[1])
 m = int(sys.argv[2])
@@ -88,7 +91,6 @@ for i in range(seed_team.shape[0]):
     d = c.apply(np.mean)
     d["Season"] = year
     team_detail = team_detail.append(d, ignore_index=True)
-# print(team_detail.tail())
 
 team_season_detail = team_detail
 
