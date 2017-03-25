@@ -15,7 +15,7 @@ Place the data files  [data files](https://www.kaggle.com/c/march-machine-learni
 # Algorithm design
 * Processing data: neural network has great capacity of expressing data, so all the detailed features (in TourneyDetailedResults.csv and RegularSeasonDetailedResults.csv) are used to depict a team. While teams preform differenly every year, so an average is taken for counting n year's tourney matches results and m year's regular matches results. Two additional features "regular season win rate" and "tourney match number" are added for better represent a team.
 * When the training and testing data are all set, a fully connected neural network is used to train the data.
-* The result is shown in res.png which shows the heapmap of probability a row team wins the column team. The teams are sorted by seed number. We can find some intersing fact in the picture. 
+* The result is shown in res.png which shows the heapmap of probability a row team wins the column team. The teams are sorted by seed number. We can find some intersing fact in the picture. The rows with darker colors means the team is stronger, we can see that they are all teams with relative small seed numbers, which is consistant with our common knowledge. The North California is most promising team due to this prediction, following with Villanova, Kansas, Oregon, Virginia etc, which are all strong teams that preforms consistantly well in many years.
 
 <p align="center">
   <img src="data/result/res.png" width="1000"/>
