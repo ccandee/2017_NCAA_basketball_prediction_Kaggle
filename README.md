@@ -11,3 +11,8 @@ Note: This is an on-going competation. The final result will be revealed in mid-
 
 # Data
 Place the data files  [data files](https://www.kaggle.com/c/march-machine-learning-mania-2017/data) into a subfolder ./data/raw and unzip
+
+# Local Testing
+$ python data_process.py 1 2 2018
+$ th train.lua
+
