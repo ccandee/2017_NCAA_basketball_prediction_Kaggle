@@ -17,10 +17,8 @@ Place the data files  [data files](https://www.kaggle.com/c/march-machine-learni
 * When the training and testing data are all set, a fully connected neural network is used to train the data.
 * The result is shown in res.png which shows the heapmap of probability a row team wins the column team. The teams are sorted by seed number. We can find some intersing fact in the picture. 
 
-![Alt text](..data/result/res.png "Result")
-
 <p align="center">
-  <img src="..data/result/res.png" width="350"/>
+  <img src="data/result/res.png" width="350"/>
 </p>
 
 # Local Testing
