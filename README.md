@@ -14,5 +14,6 @@ Place the data files  [data files](https://www.kaggle.com/c/march-machine-learni
 
 # Local Testing
 $ python data_process.py 1 2 2018
+
 $ th train.lua
 
