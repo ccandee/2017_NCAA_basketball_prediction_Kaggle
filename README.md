@@ -26,5 +26,5 @@ $ python data_process.py 1 2 2018
 
 $ th train.lua
 
-$ python python result_analysis.py
+$ python result_analysis.py
 
