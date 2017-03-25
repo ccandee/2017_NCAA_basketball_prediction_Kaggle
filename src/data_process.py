@@ -11,7 +11,6 @@ import random
 from sklearn.metrics import roc_curve, auc
 from sklearn import metrics
 from sklearn.cross_validation import train_test_split
-import helper
 
 #Prepare match detail for each seed starting from 2003, with n years' tourney, m years' regular match detail, then calculate the average
 
@@ -29,8 +28,8 @@ csv = ['/RegularSeasonCompactResults.csv',
 '/TourneyDetailedResults.csv',
 '/TourneySeeds.csv',
 '/TourneySlots.csv',
-'/sample_submission.csv',
-      '/SampleSubmission.csv']
+# '/sample_submission.csv',
+'/SampleSubmission.csv']
 path = "../data/raw"
 for file in csv:
     data[file[1:-4]] = pd.read_csv(path+file)
@@ -151,8 +150,6 @@ test_data = test_data.apply(stand, axis = 0)
 print("Saving training and testing data")
 train_data.to_csv('../data/processed/train_data.csv', index=False)
 test_data.to_csv('../data/processed/test_data.csv', index=False)
-
-
 
 
 def get_year_t1_t2(id):
